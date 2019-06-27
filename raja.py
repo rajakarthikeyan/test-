@@ -1,14 +1,12 @@
-a=int(input())
-b=list(map(int,input().split()))
-c=[]
-for x in range(a):
-    for i in range(x+1,len(b)):
-        if(b[i]==b[x]):
-          c.append(b[x])
-if (len(c)==0):
-    print("unique")
-else:
-    c.sort()
-    l=set(c)
-    for x in l:
-        print(x,end=" ")
+from collections import Counter
+x = int(input())
+y = list(map(int,input().split()))
+z = Counter(y)
+list = []
+for i in z.items():
+  if(i[1] != 1):
+    print(i[0],end = " ")
+for j in z.items():
+  list.append(j[1])
+if(max(list) == 1):
+  print("unique")
